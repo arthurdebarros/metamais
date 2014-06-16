@@ -4,23 +4,22 @@
 	
 @main("Lista de Metas") {
     
-    <h1>Voc� possui @metas.size() meta(s)</h1>
+    <h1>Você possui @metas.size() meta(s)</h1>
     
     <ul>
         @for(meta <- metas) {
             <li>
                 @meta.label
-                @meta.id
-                @meta.completa
+             	Data programada para conclusão: @meta.conclusao.toLocaleString()
                 
                 
 
                 @form(routes.Application.deleteMeta(meta.id)) {
-                    <input type="submit" value="Delete">
+                    <input type="submit" value="Delete esta meta">
                 }
-                @if(meta.completa){
-                	@form(routes.Application.deleteMeta(meta.id)) {
-                    <input type="submit" value="Delete">
+                @if(!meta.completa){
+                	@form(routes.Application.completarMeta(meta.id)) {
+                    <input type="submit" value="Completei!">
                 }
                 	
                 }
@@ -30,15 +29,15 @@
         }
     </ul>
     
-    <h2>Adicionar nova meta</h2>
+    <h2>Nova meta</h2>
     
     @form(routes.Application.novaMeta()) {
         
+        Descrição de sua meta:<br>
         @inputText(metaForm("label"))
-        @inputText(metaForm("id"))
         @inputDate(metaForm("conclusao"))
         
-        <input type="submit" value="Create">
+        <input type="submit" value="Adicionar">
         
     }
     
