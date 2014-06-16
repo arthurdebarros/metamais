@@ -17,7 +17,7 @@ public class Application extends Controller {
     
     
     public static Result verMetas(){
-    	return ok(views.html.index.render(Meta.imcompletas(), metaForm));
+    	return ok(views.html.index.render(Meta.all(), metaForm));
     }
     
     public static Result novaMeta() {

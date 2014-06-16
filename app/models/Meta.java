@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import play.data.validation.Constraints.*;
 import play.db.ebean.*;
+import java.util.Date;
 
 import javax.persistence.*;
 @Entity
@@ -13,6 +14,7 @@ public class Meta extends Model {
 	@Required
 	public String label;
 	public Boolean completa;
+	public Date conclusao;
 	
 	public static Finder<Long,Meta> find = new Finder(Long.class, Meta.class);
 
@@ -41,7 +43,7 @@ public class Meta extends Model {
 	}
 	  
 	  public static void create(Meta meta) {
-		  meta.completa = false;
+		  meta.completa = true;
 		  meta.save();
 	  }
 	  

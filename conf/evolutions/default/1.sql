@@ -7,6 +7,7 @@ create table meta (
   id                        bigint not null,
   label                     varchar(255),
   completa                  boolean,
+  conclusao                 timestamp,
   constraint pk_meta primary key (id))
 ;
 
