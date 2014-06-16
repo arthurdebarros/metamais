@@ -21,12 +21,20 @@ public class Application extends Controller {
     }
     
     public static Result novaMeta() {
-    	return TODO;
-		
+    	Form<Meta> filledForm = metaForm.bindFromRequest();
+    	  if(filledForm.hasErrors()) {
+    	    return badRequest(
+    	      views.html.index.render(Meta.all(), filledForm)
+    	    );
+    	  } else {
+    	    Meta.create(filledForm.get());
+    	    return redirect(routes.Application.verMetas());  
+    	  }
 	}
     
     public static Result deleteMeta(Long id){
-    	return TODO;
+    	Meta.delete(id);
+    	return redirect(routes.Application.verMetas());
     }
     
 

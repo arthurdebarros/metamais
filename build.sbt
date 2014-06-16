@@ -9,3 +9,7 @@ libraryDependencies ++= Seq(
 )     
 
 play.Project.playJavaSettings
+
+libraryDependencies += javaJdbc
+
+libraryDependencies += javaEbean
