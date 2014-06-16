@@ -10,9 +10,13 @@
         @for(meta <- metas) {
             <li>
                 @meta.label
+                @meta.completa
                 
                 @form(routes.Application.deleteMeta(meta.id)) {
                     <input type="submit" value="Delete">
+                }
+                @form(routes.Application.completarMeta(meta.id)) {
+                    <input type="submit" value="Completar meta!">
                 }
             </li>
         }

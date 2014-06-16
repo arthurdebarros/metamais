@@ -6,6 +6,7 @@
 create table meta (
   id                        bigint not null,
   label                     varchar(255),
+  completa                  boolean,
   constraint pk_meta primary key (id))
 ;
 

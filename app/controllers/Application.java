@@ -17,7 +17,7 @@ public class Application extends Controller {
     
     
     public static Result verMetas(){
-    	return ok(views.html.index.render(Meta.all(), metaForm));
+    	return ok(views.html.index.render(Meta.imcompletas(), metaForm));
     }
     
     public static Result novaMeta() {
@@ -34,6 +34,11 @@ public class Application extends Controller {
     
     public static Result deleteMeta(Long id){
     	Meta.delete(id);
+    	return redirect(routes.Application.verMetas());
+    }
+    
+    public static Result completarMeta(Long id){
+    	Meta.completar(id);
     	return redirect(routes.Application.verMetas());
     }
     
